@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gentle Touch | Baby Massage & Reflexology Practitioner Training</title>
+<meta name="description" content="Train to become a certified baby massage & reflexology practitioner. Little Hands. Big Foundations.">
+
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Brand fonts: Playfair Display (headings) + Montserrat (body) -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- CryptoJS (used ONLY to build the PayFast test signature in the browser) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+
+<style>
+  /* ============ GENTLE TOUCH BRAND TOKENS (from brand board) ============ */
+  :root{
+    --lilac:#B89CCB;        /* Calm / Trust / Compassion */
+    --sage:#8FAE8E;         /* Balance / Growth / Wellbeing */
+    --soft-lilac:#DED3E8;   /* Gentleness / Care */
+    --sand:#EDE8E1;         /* Warmth / Comfort */
+    --deep-green:#56785E;   /* Stability / Nature */
+    --ink:#3f3a45;
+  }
+  body{font-family:'Montserrat',sans-serif;color:var(--ink);background:var(--sand);}
+  h1,h2,h3,h4,.brand-serif{font-family:'Playfair Display',serif;color:var(--deep-green);}
+  .btn-brand{background:var(--deep-green);color:#fff;border:none;border-radius:50rem;padding:.75rem 1.75rem;font-weight:500;letter-spacing:.04em;}
+  .btn-brand:hover{background:#476651;color:#fff;}
+  .btn-outline-brand{border:2px solid var(--deep-green);color:var(--deep-green);border-radius:50rem;padding:.65rem 1.6rem;background:#fff;}
+  .btn-outline-brand:hover{background:var(--deep-green);color:#fff;}
+  .section-pad{padding:5rem 0;}
+  .eyebrow{letter-spacing:.35em;text-transform:uppercase;font-size:.72rem;color:var(--lilac);font-weight:600;}
+  .hero{background:linear-gradient(160deg,var(--soft-lilac) 0%,var(--sand) 55%,#fff 100%);}
+  .card-soft{border:none;border-radius:1.25rem;background:#fff;box-shadow:0 10px 30px rgba(86,120,94,.10);transition:transform .2s ease;}
+  .card-soft:hover{transform:translateY(-4px);}
+  .price{font-family:'Playfair Display',serif;font-size:2.4rem;color:var(--deep-green);}
+  .divider-leaf{width:70px;height:2px;background:var(--sage);margin:1rem auto;}
+  .badge-soft{background:var(--soft-lilac);color:var(--deep-green);font-weight:500;}
+
+  /* ============ TODO HIGHLIGHTS — remove class when completed ============ */
+  .todo{outline:2px dashed #e07b39;outline-offset:3px;border-radius:6px;position:relative;}
+  .todo-badge{position:absolute;top:-12px;left:8px;background:#e07b39;color:#fff;font-size:.62rem;font-weight:600;
+              padding:2px 8px;border-radius:50rem;letter-spacing:.06em;z-index:5;text-transform:uppercase;}
+  .todo-badge.static{position:static;display:inline-block;margin-left:.4rem;}
+  .checklist details summary{cursor:pointer;font-weight:600;color:var(--deep-green);}
+  footer{background:var(--deep-green);color:#e9efe9;}
+  footer a{color:var(--soft-lilac);}
+</style>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+  <div class="container">
+    <!-- TODO: replace with your logo image (brand board icon) -->
+    <a class="navbar-brand brand-serif fs-4" href="#" style="color:var(--deep-green)">
+      🌿 Gentle Touch
+    </a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#training">Training</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pricing">Book & Pay</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item ms-lg-2">
+          <span class="badge text-bg-warning todo-badge static">Sandbox mode — not live yet</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero section-pad">
+  <div class="container py-5">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <p class="eyebrow">Massage · Reflexology · Yoga</p>
+        <h1 class="display-4 mb-3">Touch. Connect. Nurture. Transform.</h1>
+        <p class="lead mb-2 fst-italic brand-serif" style="color:var(--lilac)">Little Hands. Big Foundations.</p>
+        <p class="mb-4">Turn your passion into a meaningful side hustle. Our practitioner training equips you to guide mothers in baby massage and reflexology — supporting healthy growth, better sleep and deeper bonding.</p>
+        <a href="#pricing" class="btn btn-brand me-2">Join Our Training</a>
+        <a href="#training" class="btn btn-outline-brand">What You'll Learn</a>
+      </div>
+      <div class="col-lg-6 text-center">
+        <!-- TODO: replace with your licensed hero photo (mother & baby from brand board) -->
+        <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800&q=80&auto=format&fit=crop"
+             class="img-fluid rounded-4 shadow" alt="Mother gently massaging her baby's feet">
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="section-pad bg-white">
+  <div class="container">
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-lg-8">
+        <p class="eyebrow">Why Gentle Touch</p>
+        <h2>Training practitioners to guide mothers</h2>
+        <div class="divider-leaf"></div>
+        <p>We teach you — step by step — how to run your own baby massage & reflexology practice. From technique to client care to building your side hustle, you graduate ready to nurture little ones and support mothers in your community.</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4"><div class="card card-soft p-4 h-100 text-center">
+        <div class="fs-1 mb-2">🤲</div><h5>Massage</h5>
+        <p class="small mb-0">Gentle, research-informed infant massage sequences for comfort, digestion and calm.</p></div></div>
+      <div class="col-md-4"><div class="card card-soft p-4 h-100 text-center">
+        <div class="fs-1 mb-2">🦶</div><h5>Reflexology</h5>
+        <p class="small mb-0">Baby reflexology techniques that support healthy growth, sleep and wellbeing.</p></div></div>
+      <div class="col-md-4"><div class="card card-soft p-4 h-100 text-center">
+        <div class="fs-1 mb-2">🪷</div><h5>Yoga & Bonding</h5>
+        <p class="small mb-0">Movement and connection practices that strengthen the mother–baby bond.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRAINING ================= -->
+<section id="training" class="section-pad">
+  <div class="container">
+    <div class="text-center mb-5">
+      <p class="eyebrow">Become a Practitioner</p>
+      <h2>Practitioner Training Programme</h2>
+      <div class="divider-leaf"></div>
+    </div>
+    <div class="row g-4 align-items-stretch">
+      <div class="col-lg-7">
+        <div class="card card-soft p-4 p-lg-5 h-100">
+          <h4 class="mb-3">What the course covers</h4>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-3">✔ <strong>Infant massage foundations</strong> — strokes, oils, safety, reading baby's cues</li>
+            <li class="mb-3">✔ <strong>Baby reflexology</strong> — zones and routines for sleep, colic, teething & growth</li>
+            <li class="mb-3">✔ <strong>Teaching mothers</strong> — how to run group classes & one-on-one sessions</li>
+            <li class="mb-3">✔ <strong>Building your side hustle</strong> — pricing, marketing, client onboarding</li>
+            <li class="mb-3">✔ <strong>Practical assessment & certificate</strong> — graduate as a Gentle Touch Practitioner</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="card card-soft p-4 p-lg-5 h-100" style="background:var(--soft-lilac)">
+          <h4>Who is this for?</h4>
+          <p>Mothers, doulas, nannies, nurses, yoga teachers — anyone who wants a flexible, heart-led income teaching mothers how to massage their babies with confidence.</p>
+          <p class="mb-4">No prior massage experience needed. Training is hands-on, supportive and practical.</p>
+          <span class="badge badge-soft rounded-pill px-3 py-2 align-self-start">Certificate of Completion included</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING + PAYFAST ================= -->
+<section id="pricing" class="section-pad bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <p class="eyebrow">Book & Pay Securely</p>
+      <h2>Training Options</h2>
+      <div class="divider-leaf"></div>
+      <p class="text-muted small">Secure online payment powered by
+        <!-- TODO: link to your actual PayFast account page if desired -->
+        <strong>PayFast</strong>. You can pay by card, Instant EFT, SnapScan and more.</p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+
+      <!-- OPTION A: Full course (most popular) -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card card-soft p-4 text-center h-100 border-2" style="border-color:var(--sage)">
+          <span class="badge badge-soft rounded-pill mb-3 align-self-center">Most Popular</span>
+          <h4>Full Practitioner Course</h4>
+          <div class="price todo"><span class="todo-badge">Confirm price</span>R3,950</div>
+          <p class="small text-muted">Complete training, manual, assessment & certificate</p>
+          <label class="form-label small fw-semibold mt-2">Your email (for the payment)</label>
+          <input type="email" class="form-control mb-3 buyer-email" placeholder="you@example.com" required>
+          <button class="btn btn-brand w-100 pay-btn" data-item="Practitioner Training — Full Course" data-amount="3950.00">
+            Pay & Enrol Now
+          </button>
+        </div>
+      </div>
+
+      <!-- OPTION B: Deposit -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card card-soft p-4 text-center h-100">
+          <h4 class="mt-2">Secure Your Seat (Deposit)</h4>
+          <div class="price todo"><span class="todo-badge">Confirm price</span>R500</div>
+          <p class="small text-muted">Reserve your place — balance due before training starts</p>
+          <label class="form-label small fw-semibold mt-2">Your email (for the payment)</label>
+          <input type="email" class="form-control mb-3 buyer-email" placeholder="you@example.com" required>
+          <button class="btn btn-outline-brand w-100 pay-btn" data-item="Practitioner Training — Deposit" data-amount="500.00">
+            Pay Deposit
+          </button>
+        </div>
+      </div>
+
+      <!-- OPTION C: Refresher (TODO: edit or delete) -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card card-soft p-4 text-center h-100">
+          <h4 class="mt-2 todo d-inline-block px-2"><span class="todo-badge">Edit or remove</span>Refresher Workshop</h4>
+          <div class="price todo"><span class="todo-badge">Confirm price</span>R950</div>
+          <p class="small text-muted">Half-day practical refresher for past students</p>
+          <label class="form-label small fw-semibold mt-2">Your email (for the payment)</label>
+          <input type="email" class="form-control mb-3 buyer-email" placeholder="you@example.com" required>
+          <button class="btn btn-outline-brand w-100 pay-btn" data-item="Refresher Workshop" data-amount="950.00">
+            Pay & Book
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= LAUNCH CHECKLIST (dev only — delete before go-live) ================= -->
+<section class="checklist section-pad" style="background:var(--sand)">
+  <div class="container">
+    <details class="card card-soft p-4">
+      <summary>⚙️ Launch checklist — things to complete before going live (click to expand)</summary>
+      <ol class="mt-3 mb-0 small">
+        <li>In the <code>&lt;script&gt;</code> below: enter your <strong>PayFast Merchant ID</strong>, <strong>Merchant Key</strong> and <strong>passphrase</strong> (PayFast dashboard → Settings → Security).</li>
+        <li>Set <code>testMode: false</code> only after testing in the sandbox.</li>
+        <li>Update <code>return_url</code>, <code>cancel_url</code> and <code>notify_url</code> to your real domain. <strong>The notify (ITN) URL must point to a server-side script</strong> (PHP/Node) — browsers can't process PayFast payment confirmations. Browser-side signatures are fine for sandbox testing but should move server-side for production.</li>
+        <li>Confirm the three prices (marked with orange <em>Confirm price</em> badges).</li>
+        <li>Replace the hero image with your licensed brand photography, and the 🌿 text logo with your logo file.</li>
+        <li>Update contact details (email / phone / WhatsApp) and social links in the footer.</li>
+        <li>Add your legal pages: privacy policy & refund policy (link in footer).</li>
+      </details>
+    </details>
+  </div>
+</section>
+
+<!-- ================= CONTACT / FOOTER ================= -->
+<footer id="contact" class="section-pad mb-0">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-5">
+        <h4 class="text-white">Gentle Touch</h4>
+        <p class="fst-italic" style="color:var(--soft-lilac)">Little Hands. Big Foundations.</p>
+        <p class="small">Training practitioners to guide mothers in baby massage, reflexology and yoga — for healthy, happy growth.</p>
+      </div>
+      <div class="col-lg-3">
+        <h6 class="text-white">Contact</h6>
+        <p class="small mb-1 todo d-inline-block px-1"><span class="todo-badge">Update</span>hello@gentletouch.co.za</p><br>
+        <p class="small mb-1 todo d-inline-block px-1"><span class="todo-badge">Update</span>+27 82 000 0000</p><br>
+        <p class="small todo d-inline-block px-1"><span class="todo-badge">Update</span>WhatsApp us</p>
+      </div>
+      <div class="col-lg-4">
+        <h6 class="text-white">Quick links</h6>
+        <p class="small mb-1"><a href="#training">Practitioner Training</a></p>
+        <p class="small mb-1 todo d-inline-block px-1"><span class="todo-badge">Add</span>Refund policy</p><br>
+        <p class="small todo d-inline-block px-1"><span class="todo-badge">Add</span>Privacy policy</p>
+        <p class="small mt-3 mb-0">© <span id="year"></span> Gentle Touch. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Hidden PayFast form — populated & submitted by JavaScript -->
+<form id="payfast-form" method="POST" action="https://sandbox.payfast.co.za/eng/process" target="_blank" style="display:none">
+  <input name="merchant_id"    value="">
+  <input name="merchant_key"   value="">
+  <input name="return_url"     value="">
+  <input name="cancel_url"     value="">
+  <input name="notify_url"     value="">
+  <input name="name_first"     value="">
+  <input name="email_address"  value="">
+  <input name="m_payment_id"   value="">
+  <input name="amount"         value="">
+  <input name="item_name"      value="">
+  <input name="item_description" value="">
+  <input name="custom_str1"    value="">
+  <input name="signature"      value="">
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* =====================================================================================
+   PAYFAST CONFIGURATION  —  ⚠️ COMPLETE EVERY ITEM MARKED TODO BELOW ⚠️
+   ===================================================================================== */
+const PAYFAST_CONFIG = {
+  // ✅ SANDBOX Merchant ID entered — replace with your LIVE Merchant ID before going live
+  merchant_id : "10055299",
+  // ✅ SANDBOX Merchant Key entered — replace with your LIVE Merchant Key before going live
+  merchant_key: "89yc8nmfs48pf",
+  // ⚠️ TODO: passphrase from PayFast dashboard → Settings → Security (leave "" only if none set)
+  passphrase  : "",
+  // ⚠️ TODO: set to false ONLY when going live (and after replacing ID/key above)
+  testMode    : true,
+  // ⚠️ TODO: your real URLs
+  return_url  : "https://YOUR-DOMAIN.co.za/thank-you.html",
+  cancel_url  : "https://YOUR-DOMAIN.co.za/payment-cancelled.html",
+  // ⚠️ TODO: must be a SERVER-SIDE endpoint (e.g. payfast-itn.php) — PayFast posts payment
+  //     confirmations here and you must verify the signature + amount server-side.
+  notify_url  : "https://YOUR-DOMAIN.co.za/payfast-itn.php"
+};
+
+const PAYFAST_URL = PAYFAST_CONFIG.testMode
+  ? "https://sandbox.payfast.co.za/eng/process"
+  : "https://www.payfast.co.za/eng/process";
+
+/* PHP-style urlencode (RFC 1738) — required so the MD5 signature matches PayFast's. */
+function pfUrlEncode(str){
+  return encodeURIComponent(String(str))
+    .replace(/%20/g,"+")
+    .replace(/!/g,"%21").replace(/'/g,"%27").replace(/\(/g,"%28")
+    .replace(/\)/g,"%29").replace(/\*/g,"%2A").replace(/~/g,"%7E");
+}
+
+/* Build PayFast MD5 signature from form fields (in DOM order, skipping empties + signature). */
+function buildSignature(form){
+  const parts = [];
+  form.querySelectorAll("input[name]").forEach(inp=>{
+    const name = inp.name;
+    const val  = (inp.value ?? "").trim();
+    if(name === "signature" || val === "") return;      // PayFast: exclude empty fields
+    parts.push(name + "=" + pfUrlEncode(val));
+  });
+  let sigString = parts.join("&");
+  if(PAYFAST_CONFIG.passphrase){
+    sigString += "&passphrase=" + pfUrlEncode(PAYFAST_CONFIG.passphrase);
+  }
+  return CryptoJS.MD5(sigString).toString();
+}
+
+/* Wire up every "Pay" button. */
+document.querySelectorAll(".pay-btn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    const card   = btn.closest(".card");
+    const email  = card.querySelector(".buyer-email");
+    if(!email.value || !email.checkValidity()){ email.reportValidity(); return; }
+
+    const form = document.getElementById("payfast-form");
+    form.action = PAYFAST_URL;
+    const firstName = (email.value.split("@")[0] || "Student").replace(/[^a-zA-Z]/g," ").trim().split(" ")[0] || "Student";
+
+    const fields = {
+      merchant_id      : PAYFAST_CONFIG.merchant_id,
+      merchant_key     : PAYFAST_CONFIG.merchant_key,
+      return_url       : PAYFAST_CONFIG.return_url,
+      cancel_url       : PAYFAST_CONFIG.cancel_url,
+      notify_url       : PAYFAST_CONFIG.notify_url,
+      name_first       : firstName,
+      email_address    : email.value.trim(),
+      m_payment_id     : "GT-" + Date.now(),                       // unique ref per attempt
+      amount           : btn.dataset.amount,                        // e.g. "3950.00"
+      item_name        : btn.dataset.item,                          // e.g. "Practitioner Training — Full Course"
+      item_description : "Gentle Touch practitioner training (gentletouch.co.za)",
+      custom_str1      : btn.dataset.item
+    };
+    Object.entries(fields).forEach(([k,v])=>{ form.elements[k].value = v; });
+
+    form.elements.signature.value = buildSignature(form);           // must be LAST step
+    form.submit();
+  });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
